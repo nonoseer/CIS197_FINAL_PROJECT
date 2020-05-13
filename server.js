@@ -34,7 +34,9 @@ mongoose.connect(
 
 app.use('/account', accountRouter)
 app.use('/api', apiRouter)
-
+app.get('/favicon.ico', function (_, res) {
+  return res.status(404).send()
+})
 app.get('*', function (_, res) {
   return res.status(404).send()
 })

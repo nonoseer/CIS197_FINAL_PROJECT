@@ -41,7 +41,6 @@ export class Signup extends Component {
 
       .then((res) => {
         console.log(res)
-        alert('You just signed up!')
       })
 
       .then((e) => {

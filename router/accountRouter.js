@@ -85,7 +85,7 @@ router.post('/login', function (req, res, next) {
         return res
           .cookie('cookieName', 'cookieValue', options)
           .status(200)
-          .send('cookie sent')
+          .json(user)
       } else {
         next(Error('incorrect credentials'))
       }

@@ -39,7 +39,13 @@ export class Login extends Component {
       )
 
       .then((res) => {
-        this.props.handleSuccessfulLogin(res.config.params.name)
+        console.log('login data', res)
+        console.log('login data', res.data)
+
+        this.props.handleSuccessfulLogin([
+          res.data.username,
+          res.data.phoneNumber,
+        ])
         this.props.getTodos()
       })
 

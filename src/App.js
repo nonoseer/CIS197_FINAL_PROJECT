@@ -46,7 +46,7 @@ class App extends Component {
       )
 
       .then((res) => {
-        console.log('old state', this.state)
+        console.log('old state', res)
         this.setState({ todos: res.data })
         console.log('new state', this.state)
       })
@@ -65,9 +65,11 @@ class App extends Component {
   }
   */
   handleSuccessfulLogin = (data) => {
+    console.log('combined data,', data)
     this.setState({
       loggedIn: true,
-      username: data,
+      username: data[0],
+      phoneNumber: data[1],
     })
     console.log('login info', this.state)
   }
@@ -81,7 +83,11 @@ class App extends Component {
           <div>
             hello {this.state.username}
             <div>
-              <AddTodo user={this.state.username} getTodos={this.getTodos} />
+              <AddTodo
+                user={this.state.username}
+                phoneNumber={this.state.phoneNumber}
+                getTodos={this.getTodos}
+              />
               <div>
                 {' '}
                 <Todos todos={todos} getTodos={this.getTodos} />{' '}

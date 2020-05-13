@@ -8,6 +8,7 @@ export class AddTodo extends Component {
     this.state = {
       Cadance: 0,
       Message: '',
+      PhoneNumber: this.props.phoneNumber,
     }
   }
   onChange = (e) => {
@@ -15,7 +16,7 @@ export class AddTodo extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
   onSubmit = (e) => {
-    const { Cadance, Message } = this.state
+    const { Cadance, Message, PhoneNumber } = this.state
     e.preventDefault()
     axios
       .post(
@@ -31,6 +32,7 @@ export class AddTodo extends Component {
             content: Message,
             cadance: Cadance,
             owner: this.props.user,
+            phoneNumber: PhoneNumber,
           },
         }
       )
@@ -47,7 +49,7 @@ export class AddTodo extends Component {
       <div className="container">
         <form id="contact" onSubmit={this.onSubmit}>
           <fieldset>
-            <div>Cadance</div>
+            <div>Cadance in hours</div>
             <input
               type="number"
               name="Cadance"

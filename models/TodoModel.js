@@ -17,6 +17,9 @@ const todoSchema = new mongoose.Schema({
   owner: {
     type: String,
   },
+  contact: {
+    type: Number,
+  },
 })
 
 module.exports = mongoose.model('TodoModel', todoSchema)
