@@ -16,6 +16,8 @@ export class Signup extends Component {
     e.preventDefault()
     this.setState({ [e.target.name]: e.target.value })
   }
+  
+  //creating a new user
   onSubmit = (e) => {
     const { Name, Password, PhoneNumber } = this.state
     e.preventDefault()
