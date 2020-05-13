@@ -17,7 +17,9 @@ My approach was that each time an event happens on react, there will be an event
 `checkMessage.js` is the file that is meant to be executed once every hour. When executed,it makes a check on whether a text reminder should be sent.
 
 
-
-
 ## `npm start` 
 This starts the application. The default express port is 5000 and the default react port is 3000.
+
+
+# 
+I couldn't get my project to work on heroku because of porting issues.
