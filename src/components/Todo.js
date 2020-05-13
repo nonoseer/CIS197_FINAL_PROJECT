@@ -22,6 +22,7 @@ export class Todo extends Component {
       padding: '10px',
     }
   }
+  //event handler for deleting a todo
   onDelete = (e) => {
     e.preventDefault()
     axios
