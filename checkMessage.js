@@ -1,6 +1,6 @@
 var Todo = require('./models/TodoModel')
 const accountSid = 'ACa01f99e8012286cd46897637783c7418'
-const authToken = '7a0da9a6f79d52b39a48ef5b67f074a5'
+const authToken = '32d9d9764d33b6b78f0ea7c514c8aed5'
 const client = require('twilio')(accountSid, authToken)
 /*
 client.messages
@@ -12,7 +12,15 @@ client.messages
   .then((message) => console.log(message.sid))
 */
 //console.log(Todo.find({}).data)
-
+/*
+client.messages
+  .create({
+    body: 'WHa up',
+    from: '+12058460891',
+    to: '+12672374134',
+  })
+  .then((message) => console.log(message.sid))
+*/
 var MongoClient = require('mongodb').MongoClient
 var url = 'mongodb://localhost:27017/'
 
@@ -28,14 +36,18 @@ MongoClient.connect(url, function (err, db) {
     .find()
     .toArray()
     .then((data) => {
-      if (data.hoursRemaining % data.cadance == 0) {
-        client.messages
-          .create({
-            body: data.content,
-            from: '+12058460891',
-            to: '+1' + data.contact,
-          })
-          .then((message) => console.log(message.sid))
+      for (var k = 0; k < data.length; k++) {
+        entry = data[k]
+        console.log('data', entry, entry.hoursRemaining % entry.cadance == 0)
+        if (entry.hoursRemaining % entry.cadance == 0) {
+          client.messages
+            .create({
+              body: entry.content,
+              from: '+12058460891',
+              to: '+1' + entry.contact,
+            })
+            .then((message) => console.log(message.sid))
+        }
       }
     })
   const collection = dbo.collection('todomodels')
