@@ -1,6 +1,6 @@
 var Todo = require('./models/TodoModel')
-const accountSid = 'ACa01f99e8012286cd46897637783c7418'
-const authToken = '32d9d9764d33b6b78f0ea7c514c8aed5'
+const accountSid = ''
+const authToken = ''
 const client = require('twilio')(accountSid, authToken)
 /*
 client.messages

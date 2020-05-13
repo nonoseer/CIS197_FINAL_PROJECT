@@ -68,7 +68,7 @@ export class Todo extends Component {
 
     return (
       <li key={this.props.todo.key} style={this.getStyle()}>
-        Cadance:{'once every'} {todo.cadance} weeks
+        Cadance:{'once every'} {todo.cadance} hours
         <div></div>
         {todo.content}
         {'      '}
